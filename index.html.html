@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accept - Online Angol Tananyag</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #1C1C1C; /* Dark gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        .main-container {
+            background-color: #1e6c93; /* Main content background */
+            width: 95vw; /* Responsive width */
+            max-width: 600px; /* Max width */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* Include padding in width */
+        }
+        .container {
+            background-color: #1e6c93; /* Container background */
+            color: white;
+            text-align: center;
+            padding: 1em; /* Responsive padding */
+            border-radius: 10px 10px 0 0;
+        }
+        .container h1 {
+            margin: 0;
+            cursor: pointer;
+            font-size: 1.5em; /* Responsive font size */
+        }
+        .sub-container {
+            background-color: white; /* Sub-container background */
+            padding: 1em; /* Responsive padding */
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-sizing: border-box; /* Include padding in width */
+        }
+        .sentence {
+            background-color: #d9d9d9; /* Sentence background */
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            box-sizing: border-box; /* Include padding in width */
+        }
+        .sentence span {
+            display: block;
+            text-align: left;
+        }
+        .progress-dots {
+            display: flex;
+            justify-content: center;
+            padding: 1em 0; /* Responsive padding */
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        .dot.active {
+            background-color: #4CAF50;
+        }
+        .next-button {
+            background-color: #1e6c93;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-sizing: border-box; /* Include padding in width */
+        }
+        .hidden {
+            display: none;
+        }
+        .translation {
+            font-style: italic;
+            color: #333;
+            margin-top: 5px;
+        }
+        .container .translation {
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .container h1 {
+                font-size: 1.2em; /* Adjust font size for smaller screens */
+            }
+            .sentence {
+                padding: 8px;
+                margin: 8px 0;
+            }
+            .next-button {
+                padding: 8px 16px;
+            }
+            .dot {
+                height: 12px;
+                width: 12px;
+                margin: 0 4px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container h1 {
+                font-size: 1em; /* Further adjust font size */
+            }
+            .sentence {
+                padding: 6px;
+                margin: 6px 0;
+            }
+            .next-button {
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="container" onclick="toggleTranslation('translation')">
+            <h1>accept</h1>
+            <p id="translation" class="hidden translation">(elfogad)</p>
+        </div>
+
+        <div class="sub-container">
+            <div class="sentence" onclick="toggleTranslation('translation1')">
+                <span>I can't accept your answer because it isn't factually true.</span>
+                <p id="translation1" class="hidden translation">Nem tudom elfogadni a válaszodat, mert nem tényeken alapul.</p>
+            </div>
+            <div class="sentence" onclick="toggleTranslation('translation2')">
+                <span>My parents will never accept me for who I am.</span>
+                <p id="translation2" class="hidden translation">A szüleim sosem fognak elfogadni azért, aki vagyok.</p>
+            </div>
+            <div class="sentence" onclick="toggleTranslation('translation3')">
+                <span>I accept your apology.</span>
+                <p id="translation3" class="hidden translation">Elfogadom a bocsánatkérésed.</p>
+            </div>
+            <div class="sentence" onclick="toggleTranslation('translation4')">
+                <span>You're very generous, but I can't accept your gift.</span>
+                <p id="translation4" class="hidden translation">Nagyon nagylelkű vagy, de nem tudom elfogadni az ajándékodat.</p>
+            </div>
+
+            <div class="progress-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+            <button class="next-button">NEXT</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleTranslation(id) {
+            var x = document.getElementById(id);
+            if (x.classList.contains("hidden")) {
+                x.classList.remove("hidden");
+            } else {
+                x.classList.add("hidden");
+            }
+        }
+    </script>
+</body>
+</html>
